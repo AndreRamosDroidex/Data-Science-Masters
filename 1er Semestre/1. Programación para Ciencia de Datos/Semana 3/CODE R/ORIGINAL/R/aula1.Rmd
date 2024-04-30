@@ -1,0 +1,849 @@
+---
+title: "Introducción a R"
+author: "Daniel Gutierrez"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r install, include=FALSE}
+#install.packages('knitr')
+#install.packages("rmarkdown")
+#install.packages("dplyr")
+#install.packages("tidyverse")
+#install.packages("caTools1.14")
+
+library(knitr)
+library(rmarkdown)
+library(dplyr)
+library(tidyverse)
+#library(caTools1.14)
+
+
+```
+
+# R como calculadora
+
+```{r}
+2+3
+14/6
+14/6+5
+14/(6+5)
+3^2
+2^3
+
+```
+# Operadores en R
+
+## Matemáticos
+
+- Adición: +
+- Subtracción: -
+- Multiplicación: *
+- División: /
+- Exponenciación: ^
+- logaritmo: log()
+- Resto de la división: %%
+
+
+## De comparación
+
+- Igualdad: ==
+- Diferencia !=
+- Mayor: >
+- Mayor o igual: >=
+- Menor: <
+- Menor o igual: <=
+- Subconjunto: %in% 
+- Negación: !
+
+##  Lógicos:
+
+- Verdadero: TRUE, o simplemente T
+- Falso: FALSE, o simplemente F
+
+# Definiciones especiales: 
+- Pi: pi
+- Infinito: Inf
+- Infinito Negativo: -Inf
+- Valor Indefinido (Not a Number): NaN
+- Valor faltante (Missing Data): NA
+
+
+# Calculando expresiones algebraicas
+
+$$10^2 + \frac{3*60}{8} - 3 $$
+```{r}
+10^2+3*60/8-3
+```
+
+$$\frac{5^3*(6-2)}{61 - 3 +4} $$
+```{r}
+5^3*(6-2)/(61-3+4)
+```
+
+$$2^{2+1} - 4 + 64^{-2^{2.25}-1/4} $$
+```{r}
+2^(2+1) - 4 + 64^((-2)^(2.25-1/4))
+```
+
+$$\left( \frac{0.44*(1-0.44)}{34}  \right)^{1/2} $$
+```{r}
+(0.44*(1-0.44)/34)^(1/2)
+```
+
+$$\text{log}_3(243) $$
+
+```{r}
+log(x=243, base=3)
+```
+
+# Definiendo Variables 
+
+## Almacenando valor a una variable 
+
+Existen dos formas de realizarlo, usando 
+
+* (<-),  o
+* (=). 
+
+```{r}
+x <- 5 
+x
+y = 3 
+y
+z = x + y 
+z
+w <- z*x + y 
+
+w
+
+ls()   # Muestra todas las variables creadas en R por el usuário
+
+```
+
+## Eliminando variables 
+
+Para eliminar utilizamos  rm(). 
+
+
+```{r}
+rm(x)
+ls()
+```
+
+Podemos también eliminar mas de una variable a la vez:
+
+```{r}
+rm(z,w)
+ls()
+```
+
+# Vectores
+
+La función que crea un vector es la función "c" (de concatenar):
+
+```{r}
+vec1 = c(1,3,1,42)
+vec1
+```
+
+Podemos juntar una variable a un vector:
+
+```{r}
+aux = 32.1
+vec2 = c(3,-3,2,3.45,1e+03,64^0.5,2+(3-1.1)/9.44,aux)
+vec2
+```
+
+O juntar dos vectores:
+
+```{r}
+vec3 = c(vec1,vec2)
+vec3
+```
+
+# Secuencias
+
+## Creando secuencias usando el comando ":"
+```{r}
+3:18   # realizará una sequencia de 3 hasta 27, de 1 en 1. 
+
+15:1
+
+pi:15
+```
+## Creando secuencias usando el comando "seq"
+```{r}
+
+seq(from=3,to=27,by=3)
+
+seq(from=3,to=27,length.out = 13)
+
+seq(from=3,to=27,length.out = 49)
+
+```
+
+
+```{r}
+aux = 7
+myseq = seq(from=aux,to=-45,by=-2.5)
+myseq
+
+myseq2 = seq(from=aux,to=-45,length.out = 5)
+myseq2
+
+```
+
+## Creando secuencias usando el comando "rep"
+
+```{r}
+vec=c(3,6,4)
+
+vec
+
+# Repite tres veces el vector
+
+rep(x=vec, times=3)         
+
+# Repite dos veces los elementos del vector
+
+rep(x=vec, each=2)   
+
+# Repite dos veces los elementos del vector y tres veces el vector
+
+rep(x=vec, times=3, each=2)
+
+```
+
+
+# Ordenando vectores 
+
+```{r}
+
+vec=c(2,-1,-10,3)
+
+vec
+
+sort(x=vec,decreasing = FALSE)
+
+sort(x=vec,decreasing = TRUE)
+
+```
+
+
+# Encontrar el tamaño del vector 
+```{r}
+x = c(3,2,8,1)
+x
+length(x)
+
+x= 5:13
+x
+length(x)
+
+```
+
+
+# Extraendo subelementos de un vector 
+```{r}
+myvec = c(5,-2,4,0,6,25,10,30,-8)
+myvec
+```
+¿Cuál es el tamaño de myvec?
+```{r}
+length(myvec)
+```
+¿Cuál es el primer elemento de myvec?
+```{r}
+myvec[1]
+```
+¿Cuál es el segundo elemento de myvec?
+```{r}
+foo = myvec[2]
+foo
+```
+
+¿Cuál es el último elemento de myvec?
+```{r}
+myvec[length(x=myvec)]
+```
+
+
+# Excluyendo elementos de un vector 
+## Según posición
+```{r}
+myvec
+myvec[-1]  # excluirá el primer elemento del vector
+myvec[-2]  # excluirá el primer elemento del vector
+myvec[c(1,3,5)] # retorna el primer, tercer y quinto elemento de myvec
+```
+## Según indices
+```{r}
+indexes = c(4,rep(x=2,times=3),1,4,2,3:1)
+indexes
+vector=c(10,-4,5)
+vector[indexes]
+```
+## Reescribiendo elementos 
+```{r}
+bar = c(3,2,4,4,1,2,4,1,0,0,5)
+bar
+bar[1] = 6 # Definímos un nuevo valor al primer elemento
+bar
+bar[c(2,4,6)] = c(-2,-0.5,-1) # Definímos nuevos valores al segundo, cuarto y sexto elemento
+bar                           
+```
+
+
+# Operaciones con vectores
+
+## Suma/Diferencia respecto a un vector
+```{r}
+a = 5.5:0.5
+a
+a - c(2,4,6,8,10,12)
+a + c(2,4,6,8,10,12)
+```
+## Producto vectorial
+```{r}
+b = c(1,-1,0.5,-0.5)
+a*b
+d = c(1,-2,0.5,-0.5,2,-1)
+w=a*d
+w
+```
+
+## Suma de todos los elementos del vector
+```{r}
+sum(w)
+```
+
+## Produto de todos los elementos del vector
+```{r}
+prod(w)
+```
+
+#  Matrices e Arrays.
+
+```{r}
+
+A = matrix(data=c(-3,2,893,0.17),nrow=2,ncol=2)
+A
+```
+
+```{r}
+A = matrix(data=c(-3,2,893,0.17),2,2)
+A
+```
+
+Observe que R organizó la matriz columna por columna según la lectura de los datos, de izquierda a derecha. 
+
+## Usando el comando "byrow"
+```{r}
+matrix(data=c(1,2,3,4,5,6),nrow=2,ncol=3,byrow=FALSE)
+```
+
+```{r}
+matrix(data=c(1,2,3,4,5,6),nrow=2,ncol=3,byrow=TRUE)
+```
+
+## Usando los comandos "rbind" y "cbind" 
+
+```{r}
+rbind(1:3,4:6)
+cbind(1:3,4:6)
+```
+
+
+## Dimensión de una matriz
+
+```{r}
+A = rbind(c(1,3,4),5:3,c(100,20,90),11:13)
+A
+
+dim(A)  # retorna la cantidad de filas y columnas de A. 
+
+nrow(A) # retorna la cantidad de filas de A.
+
+ncol(A) # retorna la cantidad de columnas de A.
+
+dim(A)[2] # retorna la cantidad de columnas de A.
+
+```
+
+
+## Extrayendo un elemento de una matriz.
+
+```{r}
+B=c(0.3,4.5,55.3,91,0.1,105.5,-4.2,8.2,27.9)
+B
+A = matrix(B,nrow=3,ncol=3)
+A
+```
+
+```{r}
+A[3,2]     # Muestra el elemento de la tercera fila y segunda columna. 
+A[,2]      # Muestra la segunda columna.
+A[1,]      # Muestra la primera fila.
+A[2:3,]    # Muestra la segunda y tercera fila.
+A[,c(3,1)] # Muestra la tercera y primera columna.
+```
+
+
+```{r}
+diag(x=A)   # Muestra la diagonal de la matriz A.
+```
+
+## Eliminar elementos de una matriz.
+
+```{r}
+A[,-2]     # Excluye la segunda columna.
+A[-1,3:2]  # Excluye la primera fila y muestra la tercera y segunda columna.
+```
+
+# Álgebra Matricial
+
+## Transpuesta de una matriz
+```{r}
+A = rbind(c(2,5,2),c(6,1,4))
+A
+```
+
+```{r}
+t(A)
+```
+
+```{r}
+t(t(A))
+```
+
+## Matriz identidad
+
+```{r}
+A = diag(x=3)
+A
+```
+
+## Adición y substracción de matrices
+```{r}
+A = cbind(c(2,5,2),c(6,1,4))
+B = cbind(c(-2,3,6),c(8.1,8.2,-9.8))
+A
+B
+A-B
+A+B
+```
+
+## Multiplicación por un escalar
+```{r}
+p =2
+A
+B
+p*A
+p*A+B
+
+```
+
+## Multiplicación de matrices
+```{r}
+A = rbind(c(2,5,2),c(6,1,4))
+dim(A)
+```
+
+```{r}
+B = cbind(c(3,-1,1),c(-3,1,5))
+dim(B)
+```
+
+```{r}
+A%*%B
+```
+
+```{r}
+B%*%A
+```
+
+## Inversa de una matriz
+```{r}
+A = matrix(data=c(3,4,1,2),2,2)
+A
+```
+
+```{r}
+solve(A)
+```
+
+```{r}
+A%*%solve(A)
+```
+
+# Array Multidimensional 
+
+```{r}
+AR = array(data=1:24,dim=c(3,4,2))
+AR
+```
+
+```{r}
+BR = array(data=rep(1:24,times=3),dim=c(3,4,2,3))
+BR
+```
+
+```{r}
+AR[2,,2]
+```
+
+```{r}
+AR[2,c(3,1),2]
+```
+
+```{r}
+AR[1,,]
+```
+
+
+# Valores no numéricos
+
+## Valores lógicos en R pueden ser TRUE o FALSE.
+
+```{r}
+A = c(T,F,F,F,T,F,T,T,T,F,T,F)
+A
+```
+
+```{r}
+B = matrix(data=A,3,4,byrow=TRUE)
+B
+```
+## Comparaciones
+```{r}
+1 == 2
+1>2
+1<=2
+1!=(2+3)  #!= significa no es igual
+```
+
+
+```{r}
+A = c(3,2,1,4,1,2,1,-1,0,3)
+B = c(4,1,2,1,1,0,0,3,0,4)
+length(A)==length(B)
+```
+
+```{r}
+A==B
+```
+
+```{r}
+A<B
+```
+
+```{r}
+A<=B
+```
+
+# Condicionantes AND(&) y OR (|)
+
+```{r}
+(6<4)|(3!=1)
+```
+
+TRUE es tratado como tendo valor igual a 1. E FALSE como tendo valor igual a 0
+
+```{r}
+myvec = c(5,-2.3,4,4,4,6,8,10,40,-8)
+myvec
+```
+
+```{r}
+myvec[(myvec>0)&(myvec<10)] 
+```
+
+```{r}
+myvec[(myvec>0)&(myvec<10)] 
+```
+
+```{r}
+myvec[myvec<0]  = -200
+myvec
+```
+# Función "which"
+La función which toma un vector lógico como un argumento x y retorna el indice correspondiente a la posición de cualquier o todos los elementos TRUE
+
+```{r}
+which(x=c(T,F,F,T,T))
+```
+
+```{r}
+which(x=myvec<0)
+```
+
+```{r}
+A = matrix(c(0.3,4.5,55.3,91,0.1,105.5,-4.2,8.2,27.9),nrow=3,ncol=3)
+
+A
+```
+
+```{r}
+A[c(T,F,F),c(F,T,T)]
+```
+
+```{r}
+A<1
+```
+
+```{r}
+A[A<1] = -1
+A
+```
+
+```{r}
+A>25
+```
+
+```{r}
+which(x=A>25)
+```
+
+# Caracteres tipo string (texto).
+
+
+```{r}
+x = "This is a character string "
+x
+length(x)
+```
+
+R trata string como un vetor unitario. Cuenta el número de caractéres individuales.
+
+```{r}
+nchar(x)
+```
+
+```{r}
+"alpha"=="alpha"
+
+"alpha"!="beta"
+
+c("alpha","beta","gamma")=="beta"
+```
+
+# Concatenando un texto
+
+## Usando el comando "cat" 
+
+```{r}
+val = c("Programar","es","R")
+val
+```
+
+```{r}
+cat(val[1],"en",val[3],val[2],"chevere!")
+```
+
+## Usando el comando "paste" 
+
+```{r}
+paste(val[1],"en",val[3],val[2],"chevere!")
+```
+
+```{r}
+val_a = 3
+val_b = 4.4
+```
+
+```{r}
+cat("El valor de a es ",val_a,".",sep="")
+```
+
+```{r}
+paste("El valor de b es ",val_b,".",sep="")
+```
+
+
+# Listas 
+
+Guardando más de un tipo de Dato. 
+```{r}
+x = list(matrix(data=1:4,2,2),c(T,F,T,T),"hello")
+x
+```
+
+
+```{r}
+length(x)
+```
+
+```{r}
+x[[1]]
+```
+
+```{r}
+x[[3]]
+```
+
+```{r}
+x[[1]] + 5.5
+```
+
+```{r}
+x[[1]][1,2]
+```
+
+```{r}
+cat(x[[3]],"you!")
+```
+
+```{r}
+x[[3]] = paste(x[[3]],"you!")
+x
+```
+
+```{r}
+x[[c(2,3)]]
+```
+# Dataframes
+
+```{r}
+mydata = data.frame(Nome=c("Luis","Helena","Paulo","Catarina","Sara"),
+                    idade=c(42,40,17,14,1),sex=factor(c("M","F","F","M","M")))
+mydata
+```
+
+```{r}
+mydata[2,2]
+```
+
+```{r}
+mydata[3:5,3]
+```
+
+```{r}
+mydata[,c(3,1)]
+```
+
+```{r}
+mydata$age
+```
+
+```{r}
+mydata$age[2]
+```
+
+
+```{r}
+nrow(mydata)
+
+ncol(mydata)
+
+dim(mydata)
+```
+
+```{r}
+mydata$person
+```
+
+```{r}
+mydata = data.frame(person=c("Peter","Lois","Meg","Chris","Stewie"),
+                    age=c(42,40,17,14,1),sex=factor(c("M","F","F","M","M")),
+                    stringsAsFactors = FALSE)
+mydata
+```
+
+```{r}
+mydata$Nome
+```
+
+Adicionando datos al data.frame
+```{r}
+newrecord = data.frame(person="Brian",age=7,sex=factor("M",levels=levels(mydata$sex)))
+newrecord
+```
+
+```{r}
+mydata = rbind(mydata,newrecord)
+mydata
+```
+
+```{r}
+funny = c("High","High","Low","Med","High","Med")
+funny = factor(x=funny,levels=c("Low","Med","High"))
+funny
+```
+
+```{r}
+mydata = cbind(mydata,funny)
+mydata
+```
+
+```{r}
+mydata$age.mon = mydata$age*12
+mydata
+```
+
+```{r}
+mydata$sex=="M"
+```
+
+```{r}
+mydata[mydata$sex=="M",]
+```
+
+```{r}
+mydata[mydata$age>15,]
+```
+
+# LOOPS en R
+
+Usado para repetir una operación para un conjunto de valores. Un loop tiene la siguiente estructura:
+
+for(i in conjunto_de_valores){
+  # comandos que 
+  # serão repetidos
+}
+
+Iniciamos el loop con el comando for, seguido de paréntesis y llaves. Dentro de los paréntesis, indicamos los valores que seran usados durante el loop, osea el conjunto de valores que será iterado. Para cada elemento i contenido en el conjunto de valores, ejecutaremos los comandos que estan dentro de las llaves. 
+
+
+```{r}
+# Imprimiendo los 10 primeros números naturales
+for(i in 1:10){
+  print(i)
+}
+```
+
+
+```{r}
+# Imprimiendo las 5 primeras letras del alfabeto
+for(i in 1:5){
+  print(letters[i])
+}
+```
+
+
+
+```{r}
+# Imprimiendo textos
+for (i in 2024:2028){
+  val=c("bueno","malo","malo","malo","bueno")
+  print(paste("El año de", i,val[i-2023],"economicamente"))
+}
+```
+
+
+
+```{r}
+# Imprimir los números naturales menores a 10 que no sean divisibles por 3
+for (i in 1:10) {
+  if (!i %% 3){
+    next
+  }
+    print(i)
+}
+```

@@ -1,0 +1,132 @@
+---
+title: 'Visualizando datos con ggplot2 - Parte 3'
+author: "Daniel Gutierrez"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Usaremos el conjunto de datos "mpg" y buscamos responder:
+
+Autos con motores mayores utilizan más combustible que los autosmotores menores? 
+
+```{r}
+library(ggplot2)
+data(mpg)
+head(mpg)
+tail(mpg)
+summary(mpg)
+
+```
+
+Comencemos haciendo un diagrama de dispersión entre las variables displ (tamaño del motor de un auto en litros) x hwy (eficiencia de combustible de un auto en millas por galón).
+
+Recordando que para iniciar un gráfico siempre usamos la función ggplot(), la cual creará un sistema de coordenadas donde podremos agregar capas. Y el primer argumento de esta función es el conjunto de datos que vamos a utilizar en el gráfico. Después de eso, completaremos el gráfico agregando capas de puntos, en el caso del gráfico de dispersión, geom_point().
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+El gráfico nos muestra una posible relación negativa entre la eficiencia y el tamaño del motor. Sin embargo, tenemos un conjunto de valores atípicos, que parecen estar lejos de una línea inclinada negativamente dibujada para este conjunto de puntos. 
+
+
+```{r}
+ggplot(data = mpg, aes(x = displ, y = hwy)) + 
+  geom_point()+geom_smooth(method = "lm")
+```
+
+OBSERVACIÓN: aes() se usa directamente en la función ggplot() y no en el objeto geométrico. El mapeamiento estético definido en la función ggplot() es global. Es decir, se aplica a todos los objetos geométricos de ese gráfico, a menos que se vuelva a hacer explícito en alguna capa. Una posible explicación para esto podría ser la existencia de modelos híbridos en la base de datos. La variable de class clasifica los autos en: compacto, mediano y SUV. Dado que en el momento de este conjunto de datos, solo los autos pequeños eran híbridos, podemos usar esta variable para verificar la hipótesis. Usemos entonces la variable de class diferenciando los puntos por colores según esta variable. Tenga en cuenta que hacemos esto usando el argumento color = class dentro de la función aes().
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class)) 
+```
+
+Podemos también usar el comando alpha = class para diferenciar las clases usando la transparencia de los puntos, aunque no es una buena idea cuando hay muchas clases
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, alpha = class))
+```
+
+O según el formato de puntos usando shape= class:
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class))
+```
+
+De acuerdo con los gráficos, los puntos "atípicos" no parecen ser híbridos, y si deportivos.
+
+# El recurso FACETS 
+
+Son gráficos construidos en el mismo marco de datos pero separados por variables categóricas
+
+Podemos dividir nuestros gráficos en "facetas" o subplots. Para hacer esto, podemos usar facet_wrap(), que creará subplots a partir de una sola variable, que debe ser discreta. Realizamos varios diagramas de dispersión para cada conjunto de clases de autos. Usaremos facet_wrap(~class) y podemos definir cuántas filas se usarán o cuántas columnas. Agreguemos nrow=2, para que las subparcelas se dividan en dos líneas.
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+```
+
+Si deseamos dos columnas, substituímos por ncol=2
+
+```{r}
+ggplot(data = mpg) + 
+    geom_point(mapping = aes(x = displ, y = hwy)) + 
+     facet_wrap(~ class, ncol=2)
+```
+
+Para crear subplots a partir de dos variables, usamos facet_grid(). En este caso, es preciso indicar dos variables para hacer el grid 
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)
+```
+
+# TEMAS
+
+Con la función theme() podemos modificar la apariencia de un gráfico. Por ejemplo, usaremos theme_dark(). 
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl) + theme_dark()
+
+```
+
+Y ahora theme_linedraw(). 
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +  theme_linedraw()
+
+```
+
+# MÚLTIPLES GRÁFICOS 
+
+Diferente del comando facets(), podemos crear varios gráficos independientes separados en subplots y no dividido por una variable categórica. Sin ggplot, lo realizamos usando layout() y mfrow(). Empleando ggplot, lo realizamos con la función grid.arrange(). Necesitamos instalar y cargar la libreria gridExtra.
+
+```{r}
+#install.packages("gridExtra")
+library(gridExtra)
+```
+
+Ahora creamos 3 gráficos 
+```{r}
+p1 <- ggplot(data=mpg, aes(x=displ)) + geom_bar(fill='blue')
+p2 <- ggplot(data=mpg, aes(x=displ)) + geom_boxplot() 
+p3 <- ggplot(data=mpg, aes(x=displ, y=hwy)) + geom_point(color="red")
+grid.arrange(p1, p2, p3, ncol=2)
+
+```
+
+
+

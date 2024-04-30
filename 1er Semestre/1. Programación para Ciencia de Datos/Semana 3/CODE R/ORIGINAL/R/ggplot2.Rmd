@@ -1,0 +1,129 @@
+---
+title: 'Visualizando datos con ggplot2 - Parte 2'
+author: "Daniel Gutierrez"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Usarémos el conjunto de datos, USArrests, que consiste de variables sobre los indices de criminalidad por cada 100 mil habitantes en USA. 
+
+```{r}
+#install.package{"ggplot2"}
+library(ggplot2)
+data(USArrests)
+mydata = USArrests
+dim(mydata)
+head(mydata) # Seis primeras filas
+tail(mydata) # Seis últimas filas
+summary(mydata) # Resumen estadístico 
+names(mydata) # Nombre de las variables 
+rownames(mydata)   # Nombre de los estados de USA
+```
+
+Menu ayuda sob el conjunto de datos, usamos help(USArrests).
+
+```{r eval=FALSE}
+help(USArrests)
+```
+Tenemos un conjunto de datos de sección transversal (es decir, observaciones de múltiples unidades - estados en un solo período de tiempo, 1973). En este caso, podemos hacer un gráfico de distribución de frecuencias, es decir, un histograma. Podemos ver, por ejemplo, la frecuencia de asesinatos por estado. Ya hemos visto que ggplot funciona por capas y en este caso usaremos geom_hist() para contar las frecuencias.
+
+```{r}
+g1 = ggplot(data = mydata) +
+geom_histogram(mapping = aes(x = Murder))
+g1
+```
+Gráfico de densidad usando kernel gaussiano
+```{r}
+g2 = ggplot(data = mydata) +
+geom_density(mapping = aes(x = Murder), kernel = 'gaussian')
+g2
+```
+
+Diagrama Box-plot donde podemos analizar la dispersión de una variable
+
+```{r}
+g3 = ggplot(data = mydata) +
+geom_boxplot(mapping = aes(x = 1, y = Murder))
+g3
+```
+
+Tenemos también el Violin-plot, que sigue el mismo princípio del Box-plot. Es una combinación
+del Box-plot con un gráfico de densidad. 
+
+```{r}
+ggplot(data = mydata) +
+geom_violin(mapping = aes(x = 1, y = Murder))
+```
+
+Podemos también facilmente colocar títulos, subtítulos, etc en nuestros gráficos.
+
+```{r}
+ggplot(data = USArrests) +
+geom_histogram(mapping = aes(x = Assault), bins = 10) +
+labs(x = 'Asaltos por cada 100 mil habitantes',
+y = 'Frecuencia',
+title = 'Asaltos en Estados de USA')
+```
+
+
+Podemos también alterar los colores de las barras, usando el comando fill dentro de geom_histogram. 
+
+```{r}
+ggplot(data = USArrests) +
+geom_histogram(mapping = aes(x = Assault), bins = 10, fill ='blue') +
+labs(x = 'Asaltos por cada 100 mil habitantes',
+y = 'Frecuencia',
+title = 'Asaltos en Estados de USA')
+```
+
+Para cambiar los colores de los bordes, usamos el comando color
+
+```{r}
+ggplot(data = USArrests) +
+geom_histogram(mapping = aes(x = Assault), bins = 10, fill ='blue', color='black') +
+labs(x = 'Asaltos por cada 100 mil habitantes',
+y = 'Frecuencia',
+title = 'Asaltos en Estados de USA')
+```
+
+Podemos también alterar el número de barras usando el comando bins (el default es 30)
+
+```{r}
+ggplot(data = USArrests) +
+geom_histogram(mapping = aes(x = Assault), bins = 4, fill ='blue', color='black') +
+labs(x = 'Asaltos por cada 100 mil habitantes',
+y = 'Frecuencia',
+title = 'Asaltos en Estados de USA')
+```
+
+Se usamos el comando fill = rainbow, tendremos las barras con 4 colores del arco-íris
+
+```{r}
+ggplot(data = USArrests) +
+geom_histogram(mapping = aes(x = Assault), bins = 4, fill =rainbow(4), color='black') +
+labs(x = 'Asaltos por cada 100 mil habitantes',
+y = 'Frecuencia',
+title = 'Asaltos en Estados de USA')
+```
+
+Podemos personalizar también el Box-plot
+
+```{r}
+ggplot(data = USArrests) +
+geom_boxplot(mapping = aes(x = 1, y = Murder), color = 'red', fill = 'pink')
+```
+
+Ahora elaboramos un gráfico de dispersión con el fin de verificar como el nível de asesinatos se relaciona con el tamaño de la población urbana. 
+
+```{r}
+ggplot(mydata, aes(x = UrbanPop, y = Murder)) +
+geom_point(color='blue', size=4) +
+labs(y = "Asesinatos",
+x = "Población Urbana",
+title = "Relación entre Asesinatos y Población Urbana") 
+
+```
+ 

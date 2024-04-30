@@ -1,0 +1,187 @@
+,Videojuego,Género,Distribuidora,Plataforma Original
+0,Oregon Trail,Estrategia,MECC,HP 2100
+1,Pong,Deportes,Atari,Arcade
+2,Zork,Aventura,Infocom,PDP-10
+3,Space Invaders,Matamarcianos,Taito,Arcade
+4,Asteroides,Matamarcianos,Atari,Arcade
+5,Pac-Man,Laberinto,Namco,Arcade
+6,Defender,Matamarcianos,Williams Entertainment,Arcade
+7,Donkey Kong,Plataformas,Nintendo,Arcade
+8,Frogger,Acción,Sega,Arcade
+9,Galaga,Matamarcianos,Namco,Arcade
+10,Joust,Acción,Williams Entertainment,Arcade
+11,Ms. Pac-Man,Maze,Midway,Arcade
+12,Pitfall!,Plataformas,Activision,Atari 2600
+13,Robotron: 2084,videojuego de disparos,Williams Entertainment,Arcade
+14,Elite,Simulación espacial,Acornsoft,BBC Micro
+15,Tetris,Rompecabezas,The Tetris Company,Electronika 60
+16,Gauntlet,Acción y Rol,Atari,Arcade
+17,Super Mario Bros.,Plataformas,Nintendo,NES
+18,The Legend of Zelda,Acción-aventura,Nintendo,NES
+19,Contra,Run and gun,Konami,Arcade
+20,Double Dragon,Videojuegos de palizas,Technos Japan,Arcade
+21,Mike Tyson's Punch-Out!!,Videojuego de deportes,Nintendo,NES
+22,R-Type,Matamarcianos,Irem,Arcade
+23,Mega Man 2,Plataformas,Capcom,NES
+24,Super Mario Bros. 3,Plataformas,Nintendo,NES
+25,Prince of Persia,Plataformas,Broderbund,Apple II
+26,SimCity,City-building,Maxis,Macintosh
+27,The Secret of Monkey Island,Aventura,LucasArts,PC
+28,Super Mario World,Plataformas,Nintendo,Super NES
+29,The Legend of Zelda: A Link to the Past,Acción-aventura,Nintendo,Super NES
+30,Lemmings,Rompecabezas,Psygnosis,Amiga
+31,Monkey Island 2: LeChuck's Revenge,Aventura,LucasArts,PC
+32,Sonic the Hedgehog,Plataformas,Sega,Sega Genesis
+33,Street Fighter II,Lucha,Capcom,Arcade
+34,Sonic the Hedgehog 2,Plataformas,Sega,Sega Genesis
+35,Super Mario Kart,Kart racing,Nintendo,Super NES
+36,Wolfenstein 3D,disparos en primera persona,Apogee Software,PC
+37,Day of the Tentacle,Aventura,LucasArts,PC
+38,Daytona USA,Carreras,Sega,Arcade
+39,Doom,disparos en primera persona,id Software,PC
+40,The Legend of Zelda: Link's Awakening,Acción-aventura,Nintendo,Game Boy
+41,Mortal Kombat II,Lucha,Midway,"Arcade, PlayStation(solo en Japón),
+Sega Saturn, Super NES, 
+Commodore Amiga, PC"
+42,Myst,Aventura,Broderbund,Macintosh
+43,NBA Jam,Videojuego de deportes,Midway,Arcade
+44,Phantasy Star IV,Videojuego de rol,Sega,Sega Genesis
+45,Sam & Max Hit the Road,Aventura,LucasArts,PC
+46,Secret of Mana,Rol de acción,Square,Super NES
+47,SimCity 2000,City-building,Maxis,Macintosh
+48,Donkey Kong Country,Plataformas,Nintendo,Super NES
+49,EarthBound,Videojuego de rol,Nintendo,Super NES
+50,Final Fantasy VI,Videojuego de rol,Square,Super NES
+51,Star Wars: TIE Fighter,Simulación espacial,LucasArts,PC
+52,Super Metroid,Acción-aventura,Nintendo,Super NES
+53,UFO: Enemy Unknown,Estrategia por turnos,MicroProse,PC
+54,Chrono Trigger,Videojuego de rol,Square,Super NES
+55,Warcraft II: Tides of Darkness,Estrategia en tiempo real,Blizzard Entertainment,PC
+56,Wipeout,Racing,Psygnosis,PlayStation
+57,Yoshi's Island,Plataformas,Nintendo,Super NES
+58,Civilization II,Estrategia por turnos,MicroProse,PC
+59,Command & Conquer: Red Alert,Estrategia en tiempo real,Virgin Interactive,PC
+60,Nights into Dreams...,Acción,Sega,Sega Saturn
+61,Pokémon Red and Blue,Videojuego de rol,Nintendo,Game Boy
+62,Quake,disparos en primera persona,GT Interactive,PC
+63,Resident Evil,Horror de supervivencia,Capcom,PlayStation
+64,Super Mario 64,Plataformas,Nintendo,Nintendo 64
+65,Tomb Raider,Acción-aventura,Eidos Interactive,Sega Saturn
+66,Castlevania: Symphony of the Night,Acción-aventura,Konami,PlayStation
+67,Final Fantasy Tactics,Rol táctico,Square,PlayStation
+68,Final Fantasy VII,Videojuego de rol,Square,PlayStation
+69,GoldenEye 007,disparos en primera persona,Nintendo,Nintendo 64
+70,Gran Turismo,Racing,Sony Computer Entertainment,PlayStation
+71,Quake II,disparos en primera persona,Activision,PC
+72,Star Fox 64,Matamarcianos,Nintendo,Nintendo 64
+73,Star Wars Jedi Knight: Dark Forces II,disparos en primera persona,LucasArts,PC
+74,Tekken 3,Lucha,Namco,Arcade
+75,Ultima Online,MMORPG,Electronic Arts,PC
+76,Dance Dance Revolution,Ritmo,Konami,Arcade
+77,Grim Fandango,Aventura,LucasArts,PC
+78,Half-Life,disparos en primera persona,Sierra Studios,PC
+79,The Legend of Zelda: Ocarina of Time,Acción-aventura,Nintendo,Nintendo 64
+80,Metal Gear Solid,Sigilo,Konami,PlayStation
+81,Panzer Dragoon Saga,Videojuego de rol,Sega,Sega Saturn
+82,Resident Evil 2,Horror de supervivencia,Capcom,PlayStation
+83,SoulCalibur,Lucha,Namco,Arcade
+84,StarCraft,Estrategia en tiempo real,Blizzard Entertainment,PC
+85,Thief: The Dark Project,Sigilo,Eidos Interactive,PC
+86,Age of Empires II: The Age of Kings,Estrategia en tiempo real,Microsoft Game Studios,PC
+87,EverQuest,MMORPG,Sony Online Entertainment,PC
+88,Homeworld,Estrategia en tiempo real,Sierra Studios,PC
+89,Planescape: Torment,Videojuego de rol,Interplay Entertainment,PC
+90,Shenmue,Aventura,Sega,Dreamcast
+91,Silent Hill,Horror de supervivencia,Konami,PlayStation
+92,System Shock 2,disparos en primera persona,Electronic Arts,PC
+93,Baldur's Gate II: Shadows of Amn,Videojuego de rol,Black Isle Studios,PC
+94,Counter-Strike,disparos en primera persona,Valve Corporation,PC
+95,Deus Ex,Acción y Rol,Eidos Interactive,PC
+96,Diablo II,Acción y Rol,Blizzard Entertainment,PC
+97,Jet Set Radio,Plataformas,Sega,Dreamcast
+98,The Legend of Zelda: Majora's Mask,Acción-aventura,Nintendo,Nintendo 64
+99,The Sims,Simulación,Electronic Arts,PC
+100,Tony Hawk's Pro Skater 2,Videojuego de deportes,Activision,PlayStation
+101,Advance Wars,Turn-based tactics,Nintendo,Game Boy Advance
+102,Animal Crossing,Simulación,Nintendo,Nintendo 64
+103,Final Fantasy X,Videojuego de rol,Square,PlayStation 2
+104,Gran Turismo 3: A-Spec,Carreras,Sony Computer Entertainment,PlayStation 2
+105,Grand Theft Auto III,Acción-aventura,Rockstar Games,PlayStation 2
+106,Halo: Combat Evolved,disparos en primera persona,Microsoft Game Studios,Xbox
+107,Ico,Acción-aventura,Sony Computer Entertainment,PlayStation 2
+108,Max Payne,videojuego de disparos en tercera persona,Rockstar Games,PC
+109,Metal Gear Solid 2: Sons of Liberty,Sigilo,Konami,PlayStation 2
+110,Rez,Matamarcianos,Sega,Dreamcast
+111,Silent Hill 2,Horror de supervivencia,Konami,PlayStation 2
+112,Super Smash Bros. Melee,Lucha,Nintendo,GameCube
+113,Grand Theft Auto: Vice City,Acción-aventura,Rockstar Games,PlayStation 2
+114,The Legend of Zelda: The Wind Waker,Acción-aventura,Nintendo,GameCube
+115,Metroid Prime,Acción-aventura,Nintendo,GameCube
+116,Prince of Persia: The Sands of Time,Acción-aventura,Ubisoft,PlayStation 2
+117,Star Wars: Knights of the Old Republic,Videojuego de rol,LucasArts,Xbox
+118,"WarioWare, Inc.: Mega Microgames!",Acción,Nintendo,Game Boy Advance
+119,Burnout 3: Takedown,Racing,Electronic Arts,"PlayStation 2, Xbox"
+120,Grand Theft Auto: San Andreas,Acción-aventura,Rockstar Games,PlayStation 2
+121,Half-Life 2,disparos en primera persona,Valve Corporation,PC
+122,Katamari Damacy,Acción,Namco,PlayStation 2
+123,Metal Gear Solid 3: Snake Eater,Sigilo,Konami,PlayStation 2
+124,World of Warcraft,MMORPG,Blizzard Entertainment,PC
+125,Civilization IV,Estrategia por turnos,2K Games,PC
+126,Devil May Cry 3: Dante's Awakening,Acción-aventura,Capcom,PlayStation 2
+127,God of War,Acción-aventura,Sony Computer Entertainment,PlayStation 2
+128,Guitar Hero,Ritmo,RedOctane,PlayStation 2
+129,Resident Evil 4,Horror de supervivencia,Capcom,GameCube
+130,Shadow of the Colossus,Acción-aventura,Sony Computer Entertainment,PlayStation 2
+131,Tom Clancy's Splinter Cell: Chaos Theory,Sigilo,Ubisoft,Xbox
+132,The Elder Scrolls IV: Oblivion,Videojuego de rol,Bethesda Softworks,"PC, Xbox 360"
+133,Gears of War,videojuego de disparos en tercera persona,Microsoft Game Studios,Xbox 360
+134,Ōkami,Acción-aventura,Capcom,PlayStation 2
+135,Wii Sports,Videojuego de deportes,Nintendo,Wii
+136,BioShock,disparos en primera persona,2K Games,"PC, Xbox 360"
+137,Call of Duty 4: Modern Warfare,disparos en primera persona,Activision,"PC, PlayStation 3, Xbox 360"
+138,God of War II,Acción-aventura,Sony Computer Entertainment,PlayStation 2
+139,Halo 3,disparos en primera persona,Microsoft Game Studios,Xbox 360
+140,Portal,Rompecabezas platformer,Valve Corporation,"PC, Xbox 360"
+141,Super Mario Galaxy,Plataformas,Nintendo,Wii
+142,Team Fortress 2,disparos en primera persona,Valve Corporation,PC
+143,Braid,Plataformas,Microsoft Game Studios,Xbox 360
+144,Dead Space,Horror de supervivencia,Electronic Arts,"PlayStation 3, Xbox 360"
+145,Fallout 3,Acción y Rol,Bethesda Softworks,"PC, PlayStation 3, Xbox 360"
+146,Grand Theft Auto IV,Videojuego de Acción-aventura,Rockstar Games,"PlayStation 3, Xbox 360"
+147,Left 4 Dead,disparos en primera persona,Valve Corporation,PC
+148,LittleBigPlanet,Plataformas,Sony Computer Entertainment,PlayStation 3
+149,Shin Megami Tensei: Persona 4,Videojuego de rol,Atlus,PlayStation 2
+150,Spelunky,Plataformas,Derek Yu,PC
+151,Assassin's Creed II,Acción-aventura,Ubisoft,"PlayStation 3, Xbox 360"
+152,Batman: Arkham Asylum,Acción-aventura,Warner Bros. Interactive Entertainment,"PlayStation 3, Xbox 360"
+153,Uncharted 2: Among Thieves,Acción-aventura,Sony Computer Entertainment,PlayStation 3
+154,Limbo,Plataformas,Microsoft Game Studios,Xbox 360
+155,Mass Effect 2,Acción y Rol,Electronic Arts,"PC, Xbox 360"
+156,Red Dead Redemption,Acción-aventura,Rockstar Games,"PlayStation 3, Xbox 360"
+157,Rock Band 3,Ritmo,MTV Games,"PlayStation 3, Xbox 360, Wii, Nintendo DS"
+158,Super Mario Galaxy 2,Plataformas,Nintendo,Wii
+159,Super Meat Boy,Plataformas,Team Meat,Xbox 360
+160,Batman: Arkham City,Acción-aventura,Warner Bros. Interactive Entertainment,"PlayStation 3, Xbox 360"
+161,Dark Souls,Acción y Rol,Namco Bandai Games,"PlayStation 3, Xbox 360"
+162,The Elder Scrolls V: Skyrim,Acción y Rol,Bethesda Softworks,"PC, PlayStation 3, Xbox 360"
+163,Minecraft,Sandbox,Mojang,PC
+164,Portal 2,Rompecabezas-platformer,Valve Corporation,"PC, PlayStation 3, Xbox 360"
+165,Fire Emblem: Awakening,Estrategia por turnos,Nintendo,Nintendo 3DS
+166,Journey,Aventura,Sony Computer Entertainment,PlayStation 3
+167,Mass Effect 3,Acción y Rol,Electronic Arts,"PC, PlayStation 3, Xbox 360"
+168,The Walking Dead,Aventura,Telltale Games,"PC, PlayStation 3, Xbox 360"
+169,Dota 2,MOBA,Valve Corporation,PC
+170,Grand Theft Auto V,Acción-aventura,Rockstar Games,"PlayStation 3, Xbox 360"
+171,The Last of Us,Acción-aventura,Sony Computer Entertainment,PlayStation 3
+172,Bloodborne,Acción y Rol,Sony Computer Entertainment,PlayStation 4
+173,The Witcher 3: Wild Hunt,Acción y Rol,CD Projekt,"PC, PlayStation 4, Xbox One"
+174,Inside,Plataformas,Playdead,Xbox One
+175,Overwatch,disparos en primera persona,Blizzard Entertainment,"PC, PlayStation 4, Xbox One"
+176,The Legend of Zelda: Breath of the Wild,Acción-aventura,Nintendo,"Nintendo Switch, Wii U"
+177,Assassin's Creed: Origins,"Acción-aventura, Videojuego de rol",Ubisoft,"PC, PlayStation 4, Xbox One, Google Stadia"
+178,God of War,Acción-aventura,Sony Computer Entertainment,PlayStation 4
+179,Red Dead Redemption 2,Acción-aventura,Rockstar Games,"PC, PlayStation 4, Xbox One, Google Stadia"
+180,Persona 5 Royal,Videojuego de rol,Atlus,PlayStation 4
+181,Sekiro: Shadows Die Twice,Videojuego de acción-aventura,"From Software, Activision","PC, PlayStation 4, Xbox One, Google Stadia"
+182,The Last of Us Part II,Acción-aventura,Sony Computer Entertainment,"PlayStation 4, PlayStation 5"
+183,Hades,"Roguelike,Arpg",Supergiant Games,"PC, PlayStation 4, Xbox One, Nintendo Switch, PlayStation 5, Xbox Series X/S"

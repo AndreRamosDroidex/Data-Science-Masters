@@ -1,0 +1,176 @@
+---
+title: 'Visualizando datos con ggplot2 - Parte 1'
+author: "Daniel Gutierrez"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+El paquete ggplot fue desarrollado por Hadley Wickham a partir de su tesis doctoral "La gramática de los gráficos".  La gramática proviene de las múltiples capas de un gráfico. Para comenzar, instalar y cargar la libreria  ggplot2 (ggplot2 está dentro del tidyverse. Así que puede instalar y cargar el tidyverse que cargará automáticamente ggplot2).
+
+```{r}
+#install.packages{"ggplot2"}
+library(ggplot2)
+```
+
+Usaremos un conjunto de datos de R ("mtcars"). Es una base de datos con características de diferentes modelos de autos. Consta de datos con 32 observaciones en 11 variables (numéricas), que se describen a continuación:
+
+- mgp: millas/galón (EE. UU.)
+- cyl: Número de cilindros
+- disp: Desplazamiento (cu.in.)
+- hp: potencia bruta
+- drat: relación del eje trasero
+- wt: Peso (1000 libras)
+- qsec: 1/4 de milla hora
+- vs: Motor (0 = en forma de V, 1 = recto)
+- am: Transmisión (0 = automática, 1 = manual)
+- gear: Número de marchas hacia adelante
+- carb: Número de carburadores
+
+
+```{r}
+data("mtcars")
+```
+
+Para visualizar las primeras filas del banco,  podemos usar el comando head
+
+```{r}
+head(mtcars)
+```
+
+Para construir un gráfico usando ggplot, supongamos que los gráficos están formados por capas(layers). 
+
+```{r}
+# Iniciamos 
+g <- ggplot(mtcars)
+# Adicionar puntos (geom_point) y
+# vamos a mapear variables a elementos estéticos de los puntos.
+# Size = 3 define el tamaño de todos los puntos. 
+g <- g +
+geom_point(aes(x = hp, y = mpg, color = factor(am)),
+size = 3)
+# Alterando la escala de colores
+g <- g +
+scale_color_manual("Automatic",
+values = c("red", "blue"),
+labels = c("No", "Si"))
+# Títulos
+g <- g +
+labs(title = 'Relación entre consumo, potencia y tipo de cambio',
+y = 'Consumo',
+x = 'Potencia')
+g
+```
+
+
+Analicemos el código que usamos para hazer el gráfico anterior 
+
+Primero, usamos el conjunto de datos por ggplot(mtcars)
+ 
+Despues, agregamos una capa de puntos, para las variables hp e mpg, con las posiciones en los ejes  "x" e "y". Además, una variable am para el color de cada punto
+
+geom_point(aes(x = hp, y = mpg, color = factor(am)),
+size = 3) +
+scale_color_manual("Automatic",
+values = c("red", "blue"),
+labels = c("No", "Yes"))   
+
+Luego, alteramos la escala de color, definimos su título, etiquetas (labels) y los valores (values)
+para los colores. Finalmente, definimos los títulos y etiquetas de los ejes.
+
+```{r}
+ggplot(mtcars) +
+geom_point(aes(x = hp, y = mpg, color = factor(am)),
+size = 3) +
+scale_color_manual("Automatic",
+values = c("red", "blue"),
+labels = c("No", "Si")) +
+labs(title = 'Relação entre consumo, potencia y tipo de cambio',
+y = 'Consumo',
+x = 'Potência')
+```
+
+Cada gráfico tiene 3 conjuntos de elementos:
+I) conjunto de datos (data)
+II) Sistema de coordenadas (mapping)
+III) conjunto de figuras geométricas que caracterizan el gráfico (geom)
+
+
+Mapeo Estético son características visuales de los objetos geométricos (puntos, barras, líneas, etc.). Usamos la función aes() para esto. En nuestro ejemplo, usamos 3 características visuales: posición x, posición y y color.
+
+Los objetos geométricos comienzan con la expresión geom_ y serán seguidos por el tipo de objeto. A continuación algunos ejemplos:
+
+- Dispersión: geom_point()
+- Barras: geom_bar()
+- Histograma: geom_histogram()
+- Boxplot: geom_boxplot()
+- Densidad: geom_density()
+- Lineas: geom_line()
+
+Note que las capas son unidas del signo +
+
+Entrenemos creando un nuevo gráfico de dispersión (puntos) para el conjunto de dados. Agregamos una tercera capa al gráfico, generando la reta y = x. se = FALSE  retira el intervalo de confiança. Veamos. 
+
+
+
+```{r}
+g1 <- ggplot(mtcars, aes(y = mpg, x = disp)) +
+geom_point()+geom_smooth(se = FALSE, method = "lm")
+g1
+```
+
+
+Ahora veamos como queda con el intervalo de confiança
+
+
+```{r}
+g1 <- ggplot(mtcars, aes(y = mpg, x = disp)) +
+geom_point()+geom_smooth(method = "lm")
+g1
+```
+
+
+También, podemos mudar los colores de los pontos y de la recta. 
+
+
+```{r}
+g3 <- ggplot(mtcars, aes(y = mpg, x = disp)) +
+geom_point(color = 'red')+geom_smooth(se = FALSE, method = "lm",color='green')
+g3
+```
+
+Además, tener diferentes colores para diferentes categorias de cilindros (variable cyl).
+
+
+```{r}
+mtcars$cyl=as.factor(mtcars$cyl)
+g4 <- ggplot(mtcars, aes(y = mpg, x = disp)) +
+geom_point(aes(color=cyl))
+g4
+```
+
+O diferentes formas para diferentes categorias de cilindros (grupos)
+
+```{r}
+g5 <- ggplot(mtcars, aes(y = mpg, x = disp)) +
+geom_point(aes(shape = cyl, color=cyl))
+g5
+```
+
+También, es posible modificar la forma y el tamaño del punto
+
+```{r}
+g6 <- ggplot(mtcars, aes(y = mpg, x = disp)) +
+geom_point(shape=8, color='steelblue', size=5)
+g6
+```
+
+y cambiar el llenado de la figura usando fill:
+
+```{r}
+g7 <- ggplot(mtcars, aes(y = mpg, x = disp)) +
+geom_point(shape=23, fill = "yellow", color='red', size=4)
+g7
+
+```
